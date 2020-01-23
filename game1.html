@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Profile</title>
+    <title>Number Guessing Game!</title>
 
     <!-- Font Awesome Icons -->
     <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
@@ -19,6 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="dist/js/GuessingGame.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -51,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="index.html" class="nav-link">
                                 <i class="fas fa-home"></i>
                                 <p>
                                     Home
@@ -75,7 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="game1.html" class="nav-link">
+                            <a href="#" class="nav-link active">
                                 <i class="fas fa-gamepad"></i>
                                 <p>
                                     Game
@@ -96,13 +97,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">About me</h1>
+                            <h1 class="m-0 text-dark">Number guessing</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active">Profile</li>
+                                <li class="breadcrumb-item active">Number guessing game</li>
                             </ol>
                         </div>
                         <!-- /.col -->
@@ -117,94 +118,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- The time line -->
-                        <div class="timeline">
-                            <!-- timeline time label -->
-                            <div class="time-label">
-                                <span class="bg-dark">Profile</span>
-                            </div>
-                            <!-- timeline item -->
-                            <div>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header">I'm ez <a href="#">Programer</a></h3>
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Rule</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <!-- timeline time label -->
-                            <div class="time-label">
-                                <span class="bg-gradient-gray-dark">Skills</span>
+                            <div class="card-body" style="display: block;">
+                                We have selected a random number between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low.
                             </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header">Sleep <a href="#">"OVER"</a> 8 hours</h3>
-                                </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3 style="text-align: center;">Enter a guess</h3>
+                                <form role="form ">
+                                    <div class="form-group">
+                                        <!-- <label for="exampleInputEmail1 ">Email address</label> -->
+                                        <input type="text " class="form-control" id="InputGuess" placeholder="Enter guess">
+                                    </div>
+                                    <center><button type="button" class="btn btn-primary" id="btn1" onclick="getGuess()">Submit guess</button></center>
+                                </form>
                             </div>
-                            <div class="time-label">
-                                <span class="bg-gradient-gray">Technical</span>
+                            <div class="small-box-footer" id="GuessSubmit" style="visibility: hidden;">
+                                <h6>Previos guesses: </h6>
+                                <h6 id="PreviosGuesses"></h6>
+                                <h6 id="message2userSoW"></h6>
+                                <h6 id="message2user"></h6>
+                                <center><button type="button" class="btn btn-primary" id="restart" style="visibility: hidden;" onclick="reload()">Start new game</button></center>
                             </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>P</b>ython</i></h3>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>J</b>ava</i></h3>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>C</b>++</i></h3>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>P</b>HP</i></h3>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>S</b>QL</i></h3>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="fas fa-arrow-right"></i>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><i><b>M</b>achine <b>L</b>earning</i></h3>
-                                </div>
-                            </div>
-                            <div class="time-label">
-                                <span class="bg-gradient-gray">Experience</span>
-                            </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header"><a href="#">None</a></h3>
-                                </div>
-                            </div>
-                            <div class="time-label">
-                                <span class="bg-gradient-gray-dark">Education</span>
-                            </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <div class="timeline-item">
-                                    <h3 class="timeline-header">PPk</h3>
-                                </div>
-                            </div>
-                            <!-- END timeline item -->
                         </div>
                     </div>
-                    <!-- /.col -->
                 </div>
                 <!-- /.row -->
             </div>
@@ -241,11 +196,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Bootstrap 4 -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <!-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js "></script> -->
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
 </body>
 
 </html>
